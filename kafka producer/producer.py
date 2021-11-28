@@ -21,7 +21,7 @@ if __name__ == '__main__':
         lines = f.readlines()
 
     for line in lines:
-        kafka_python_producer_sync(producer, line, 'word')
+        kafka_python_producer_sync(producer, line, 'test')
 
     f.close()
 
