@@ -16,9 +16,10 @@ def error(exception):
 
 
 if __name__ == '__main__':
-    producer = KafkaProducer(bootstrap_servers='34.90.245.247:9092')  # use your VM's external IP Here!
+    producer = KafkaProducer(bootstrap_servers='34.141.229.194:9092')  # use your VM's external IP Here!
     with open('/Users/twan/PycharmProjects/DE2/stream_data/test.csv') as f:
         lines = f.readlines()
+
 
     for line in lines:
         kafka_python_producer_sync(producer, line, 'test')
