@@ -32,6 +32,7 @@ if __name__ == '__main__':
     for i in range(0, len(lines_roles)):
         try:
             kafka_python_producer_sync(producer, lines_movies[i], 'movies')
+            pass
         except:
             print('Movies out of data, nothing to stream.')
         try:
