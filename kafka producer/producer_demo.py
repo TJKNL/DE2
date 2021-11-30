@@ -40,7 +40,7 @@ if __name__ == '__main__':
         except:
             print('Roles out of data, nothing to stream.')
         try:
-            kafka_python_producer_sync(producer, lines_directors[i], 'actors')
+            kafka_python_producer_sync(producer, lines_directors[i], 'directors')
         except:
             print('Directors out of data, nothing to stream.')
         i += 1
