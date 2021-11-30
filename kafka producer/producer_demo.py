@@ -3,7 +3,7 @@ from time import sleep
 from random import randint
 
 
-vm_ip = '34.141.229.194'
+vm_ip = '34.147.118.242'
 
 def kafka_python_producer_sync(producer, msg, topic):
     producer.send(topic, bytes(msg, encoding='utf-8'))

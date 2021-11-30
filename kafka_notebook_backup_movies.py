@@ -65,4 +65,4 @@ except KeyboardInterrupt:
     activityQuery.stop()
     # Stop the spark context
     spark.stop()
-    print("Stoped the streaming query and the spark context")
+    print("Stoped the streaming query and the spark context")cd 
