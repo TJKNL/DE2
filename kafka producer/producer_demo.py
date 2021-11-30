@@ -25,10 +25,10 @@ if __name__ == '__main__':
         lines_movies = f.readlines()
     with open('/Users/twan/PycharmProjects/DE2/stream_data/roles.csv') as f2:
         lines_roles = f2.readlines()
-
+    with open('/Users/twan/PycharmProjects/DE2/stream_data/directors.csv') as f3:
+        lines_directors = f3.readlines()
 
     i = 0
-
     for i in range(0, len(lines_roles)):
         try:
             kafka_python_producer_sync(producer, lines_movies[i], 'movies')
@@ -39,9 +39,14 @@ if __name__ == '__main__':
             kafka_python_producer_sync(producer, lines_roles[i], 'roles')
         except:
             print('Roles out of data, nothing to stream.')
+        try:
+            kafka_python_producer_sync(producer, lines_directors[i], 'actors')
+        except:
+            print('Directors out of data, nothing to stream.')
         i += 1
         sleep(randint(1, 2))
     f.close()
     f2.close()
+    f3.close()
 
 
