@@ -3,7 +3,7 @@ from time import sleep
 from random import randint
 
 
-vm_ip = '34.147.118.242'
+vm_ip = '34.91.159.65'
 
 def kafka_python_producer_sync(producer, msg, topic):
     producer.send(topic, bytes(msg, encoding='utf-8'))
@@ -25,7 +25,7 @@ if __name__ == '__main__':
         lines_movies = f.readlines()
     with open('/Users/twan/PycharmProjects/DE2/stream_data/roles.csv') as f2:
         lines_roles = f2.readlines()
-    with open('/Users/twan/PycharmProjects/DE2/stream_data/directors.csv') as f3:
+    with open('/Users/twan/PycharmProjects/DE2/stream_data/movies_directors.csv') as f3:
         lines_directors = f3.readlines()
 
     i = 0
