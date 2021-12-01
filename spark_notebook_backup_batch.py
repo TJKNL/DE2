@@ -78,7 +78,8 @@ conf.set("fs.AbstractFileSystem.gs.impl", "com.google.cloud.hadoop.fs.gcs.Google
 
 # Saving the directors data to BigQuery
 # Delete records where the name is empty
-directors.na.dropwrite.format('bigquery') \
+directors.na.drop(subset='name') \
+  .write.format('bigquery') \
   .option('table', 'group-4-325408.ga2.directors') \
   .mode("append") \
   .save()
@@ -108,4 +109,3 @@ Female_count.write.format('bigquery') \
   .mode("append") \
   .save()
 print(datetime.now(), "female_count saved")
-
