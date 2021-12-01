@@ -1,3 +1,54 @@
+# THis file serves as backup for the SQL to create all necesary tables.
+(
+ index INT64, 
+ id INT64, 
+ title STRING, 
+ year INT64, 
+ score Float64, 
+ genre_id INT64, 
+); 
+  
+CREATE TABLE IF NOT EXISTS ga2.roles 
+( 
+ id INT64, 
+ actor_id INT64, 
+ role STRING 
+); 
+  
+CREATE TABLE IF NOT EXISTS ga2.directors 
+( 
+ id INT64, 
+ name STRING, 
+ year INT64, 
+ gender STRING 
+); 
+  
+CREATE TABLE IF NOT EXISTS ga2.actors 
+( 
+ id INT64, 
+ name STRING, 
+ year INT64, 
+ gender STRING 
+); 
+  
+CREATE TABLE IF NOT EXISTS ga2.movies_genres 
+( 
+ id INT64, 
+ genre STRING, 
+ year INT64 
+); 
+  
+CREATE TABLE IF NOT EXISTS ga2.female_count 
+( 
+ year INT64, 
+ Count_Female_directors INT64, 
+Count_Female_actors INT64 
+); 
+haal ik het uit het report 
+chilll 
+ik zet het er wel ff in 
+ooww wacht movies_directors staat er niet in 
+die heb jij dan denk ik apart toegevoegd 
 CREATE TABLE IF NOT EXISTS ga2.movies 
 ( 
  index INT64, 
@@ -43,4 +94,10 @@ CREATE TABLE IF NOT EXISTS ga2.female_count
  year INT64, 
  Count_Female_directors INT64, 
 Count_Female_actors INT64 
+);
+
+CREATE TABLE IF NOT EXISTS ga2.movies_directors 
+( 
+ id INT64, 
+ director_id INT64 
 );

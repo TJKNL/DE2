@@ -1,3 +1,0 @@
-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
-
-kafkacat -b localhost:9092 -t word -P

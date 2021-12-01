@@ -13,6 +13,10 @@ from pyspark.sql import functions as sf\
 from pyspark.sql.types import IntegerType\
 from pyspark.sql.functions import concat, col, lit, desc,expr\
 \
+"""
+This file was used to create the .csv files used in our demo.
+"""
+
 sparkConf = SparkConf()\
 sparkConf.setMaster("spark://spark-master:7077")\
 sparkConf.setAppName("spark_batch_data")\

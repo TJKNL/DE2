@@ -4,6 +4,7 @@ from pyspark.sql.functions import explode, split, concat, col, lit
 from pyspark.sql.types import StructType, StructField, LongType, StringType, DoubleType
 from time import sleep
 
+# Define characteristics of the Spark job.
 sparkConf = SparkConf()
 sparkConf.setMaster("spark://spark-master:7077")
 sparkConf.setAppName("spark_stream_directors")
@@ -20,7 +21,7 @@ conf = spark.sparkContext._jsc.hadoopConfiguration()
 conf.set("fs.gs.impl", "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem")
 conf.set("fs.AbstractFileSystem.gs.impl", "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFS")
 
-# Read the whole dataset as a batch
+# Read the stream from the topic directors.
 df = spark \
         .readStream \
         .format("kafka") \
@@ -29,8 +30,7 @@ df = spark \
         .option("startingOffsets", "earliest") \
         .load()
 
-#content = lines.select(
-#        (split(lines.value, ";").alias("index")))
+# Extract the data from the stream into a Spark stream df.
 split_col = split(df.value, ';')
 dfr = df.withColumn('id', split_col.getItem(0).cast('int'))
 dfr = dfr.withColumn('director_id', split_col.getItem(1).cast('int'))
@@ -42,15 +42,15 @@ spark.conf.set('temporaryGcsBucket', bucket)
 
 def my_foreach_batch_function(df, batch_id):
     # Saving the data to BigQuery as batch processing.
-    # Drop rows with na (NULL) in 'role'. If no role is known, we are not interested.
+    # Drop rows with na (NULL) in 'director_id'. If no role is known, we are not interested.
     df.na.drop(subset='director_id') \
       .write.format('bigquery') \
-      .option('table', 'group-4-325408.ga2.directors') \
+      .option('table', 'group-4-325408.ga2.movies_directors') \
       .mode("append") \
       .save()
 
 # Output is written to a Big Query Table.
-# ProcessingTime trigger with two-seconds micro-batch interval.
+# ProcessingTime trigger with 15-seconds micro-batch interval. Time based on logs from Spark.
 activityQuery = dfr.writeStream.outputMode("append") \
                     .trigger(processingTime = '15 seconds').foreachBatch(my_foreach_batch_function).start()
 
