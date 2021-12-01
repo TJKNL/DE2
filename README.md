@@ -11,9 +11,10 @@ To replicate the results with this repository:
 4. Replace usernames, BigQuery and GCS Bucket locations with your own username or location.
     BigQuery tables should also be created.
 5. Run the build and run the docker-compose deployment.
-6. Run the 4 Jupyter Notebooks saved as "backup" in this repo.
+6. Use the admin.py script to create (and possibly delete) Kafka topics for data streaming.
+7. Run the 4 Jupyter Notebooks saved as "backup" in this repo.
     These should be ran from within the spark-driver-app container.
     Check the logs of this container to access the JupyterLab instance running on the container.
-6. To test streaming functionality, run the producer_demo.py.
+8. To test streaming functionality, run the producer_demo.py.
     This program streams data to the Kafka container.
-7. Data should now be reaching your BigQuery by a batch and stream pipeline.
+9. Data should now be reaching your BigQuery by a batch and stream pipeline.
