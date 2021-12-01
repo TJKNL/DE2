@@ -108,7 +108,7 @@ services:
     volumes:
       - spark-data:/home/jovyan/data
       - spark-checkpoint:/home/jovyan/checkpoint
- spark-worker-4:
+  spark-worker-4:
     build: ./spark-bitnami-python3.9
     container_name: spark-worker-4
     user: root
