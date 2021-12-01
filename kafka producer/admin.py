@@ -1,3 +1,7 @@
+"""
+This script serves as the admin client for Kafka.
+Topics can be created or deleted by running this file.
+"""
 from kafka.admin import KafkaAdminClient, NewTopic
 
 
@@ -12,8 +16,6 @@ vm_ip = '34.91.159.65'
 delete_topics(KafkaAdminClient(bootstrap_servers=f"{vm_ip}:9092", client_id='test'), 'movies')
 delete_topics(KafkaAdminClient(bootstrap_servers=f"{vm_ip}:9092", client_id='test'), 'roles')
 delete_topics(KafkaAdminClient(bootstrap_servers=f"{vm_ip}:9092", client_id='test'), 'directors')
-
-
 
 
 if __name__ == '__main__':
