@@ -3,6 +3,9 @@ The repository for Group 4 Assignment 2 of Data Engineering at JADS 2021-2022.
 
 This directory accompanies the report submitted. More information about the exact configuration can be found there.
 
+The report which visualizes the data processed with this code can be found here:
+https://datastudio.google.com/reporting/684fe76e-aeec-4232-8433-c62bd8c1ca1e
+
 ## Replicating results
 To replicate the results with this repository:
 1. Clone repository to your machine (VM).
