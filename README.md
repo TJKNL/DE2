@@ -9,7 +9,7 @@ To replicate the results with this repository:
 2. Add firewall rules if running on VM. See deployment/docker-compose.yml for ports.
 3. For VM, replace the external IP of our machine with your own.
 4. Replace usernames, BigQuery and GCS Bucket locations with your own username or location.
-    BigQuery tables should also be created.
+    BigQuery tables should also be created. SQL for this can be foudn in 
 5. Run the build and run the docker-compose deployment.
 6. Use the admin.py script to create (and possibly delete) Kafka topics for data streaming.
 7. Run the 4 Jupyter Notebooks saved as "backup" in this repo.
