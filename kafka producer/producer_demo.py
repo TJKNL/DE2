@@ -21,11 +21,11 @@ def error(exception):
 
 if __name__ == '__main__':
     producer = KafkaProducer(bootstrap_servers=f'{vm_ip}:9092')  # use your VM's external IP Here!
-    with open('/Users/twan/PycharmProjects/DE2/stream_data/movies.csv') as f:
+    with open('/Users/twan/PycharmProjects/DE2/stream_data/initial_movies.csv') as f:
         lines_movies = f.readlines()
-    with open('/Users/twan/PycharmProjects/DE2/stream_data/roles.csv') as f2:
+    with open('/Users/twan/PycharmProjects/DE2/stream_data/initial_roles.csv') as f2:
         lines_roles = f2.readlines()
-    with open('/Users/twan/PycharmProjects/DE2/stream_data/movies_directors.csv') as f3:
+    with open('/Users/twan/PycharmProjects/DE2/stream_data/initial_movies_directors.csv') as f3:
         lines_directors = f3.readlines()
 
     i = 0

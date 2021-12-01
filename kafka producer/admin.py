@@ -7,11 +7,11 @@ def delete_topics(admin, topic):
 
 def create_topics(admin, topic_list):
     admin.create_topics(new_topics=topic_list, validate_only=False)
-vm_ip = '34.147.118.242'
+vm_ip = '34.91.159.65'
 
-#delete_topics(KafkaAdminClient(bootstrap_servers=f"{vm_ip}:9092", client_id='test'), 'movies')
-#delete_topics(KafkaAdminClient(bootstrap_servers=f"{vm_ip}:9092", client_id='test'), 'roles')
-#delete_topics(KafkaAdminClient(bootstrap_servers=f"{vm_ip}:9092", client_id='test'), 'directors')
+delete_topics(KafkaAdminClient(bootstrap_servers=f"{vm_ip}:9092", client_id='test'), 'movies')
+delete_topics(KafkaAdminClient(bootstrap_servers=f"{vm_ip}:9092", client_id='test'), 'roles')
+delete_topics(KafkaAdminClient(bootstrap_servers=f"{vm_ip}:9092", client_id='test'), 'directors')
 
 
 
