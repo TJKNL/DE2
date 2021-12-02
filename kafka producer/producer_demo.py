@@ -7,7 +7,7 @@ from time import sleep
 from random import randint
 
 # Enter the IP of the machine running Kafka.
-vm_ip = '34.91.159.65'
+vm_ip = '34.90.112.139'
 
 # Messeges need to be encoded in bytes before sending to Kafka.
 def kafka_python_producer_sync(producer, msg, topic):
